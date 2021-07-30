@@ -1,1 +1,3 @@
 Ultima volta, per vedere se mi carica da github al server.
+
+Non capisco: forse me le ricarica una volta eliminate solamente se modificate dopo la data di upload.
