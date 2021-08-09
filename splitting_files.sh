@@ -24,8 +24,9 @@ for i in `cat tmp3`
 	linesxtext=$(( $lines_tot / $to_divide_in))
  	echo "Ogni pezzo avrà "$linesxtext" righe"
 	echo " "
-	
+ 	
 	c=1	
+	
 	while [ $c -le $to_divide_in ]
        	do 
        	#echo $c" di "$linesxtext" righe"
@@ -37,6 +38,10 @@ for i in `cat tmp3`
 	c=$(( $c + 1 ))
        	done
 
+	last_head=$(( $c * $linesxtext ))
+	last_tail=$(( (($c - 1) * $linesxtext ) + 1 ))
+	head -n +$last_head $name | tail -n +$last_tail > $dir/$c"_"$dir
+	
 	done
 	
 rm tmp1 tmp2 tmp3
