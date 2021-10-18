@@ -4,12 +4,16 @@
 #premessa: questo script dovrebbe riconoscere i mirna andando a mappare le fastq del campione preso in esame contro la banca dati di tutti i mirna riconosciuti per quel determinato organismo.
 #dopo la parte di filtraggio ci si ricollega ai mappaggi di 01.core, per prendere solo le reads che si originano dal mitocondrio. Facendo così non ho trovato nula, ovvero nessuna reads originatesi dal mitocondrio che mappasse sui precursori dei mirna riconosciuti. Sono stato più fortunto nel caso in cui ho provato a mappare direttamente le reads filtrate sulla banca dati dei precursori mirna, senza passare per core.
 
-organism=MuMu
+organism=DrMe
 sex=female
 output=$organism"_results"
 
 #next value True or False. In True case it will run the analyses looking for mirna only between sequence originated from mitochondria. Those are found whith the 01.core.sh pipeline
-enable_mitounique=True
+enable_mitounique=False
+
+#next value True or False. If True the script will keep only sequences shorter then 27 and longer then 14, according to the paper.
+check_length=True
+
 
 genome_mit=$organism"_mit_doubled"
 genome_mit_file=$organism"_mit.fasta"
@@ -116,6 +120,23 @@ for fastq in *.trim.fastq
 
 #fastqc *.trim.kraken2.fastq
 
+##filtering out only reads that are shorter then 27 nt and longer then 14 nt, following instruction of the paper.
+if [ "$check_length" = True ]
+then
+for i in *.trim.kraken2.fastq
+        do
+        echo "tengo solamente le sequenze >14 e <27 nt di " $i
+        not_filtered=`wc -l $i  | awk '{print $1}'`
+	cat $i | awk '{y= i++ % 4 ; L[y]=$0; if(y==3 && length(L[1])<=27 && length(L[1])>=14) {printf("%s\n%s\n%s\n%s\n",L[0],L[1],L[2],L[3]);}}' > $i.fastq
+	mv $i.fastq $i
+	right_length=`wc -l $i  | awk '{print $1}'`
+	echo "di " $i " passano il filtro di lunghezza "$right_length >> percentage_of_mapped
+        echo "($right_length/$not_filtered)" | bc -l >> percentage_of_mapped
+        done
+else 
+echo "jumpin' length check step"
+fi
+
 ##formatting header on fastq
 num_fastq=`ls *.trim.kraken2.fastq | grep -c trim\.kraken2\.fastq`
 num_curr_fastq=0
@@ -188,6 +209,7 @@ fi
 
 if [ "$enable_mitounique" = True ]
 then
+
 for infile in *Multi_MitoUnique.bam
 	do fastq_tomap=${infile%.trim.kraken2.fastq_Multi_MitoUnique.bam}.MitoUnique.fastq
 	prefile=${infile%.trim.kraken2.fastq_Multi_MitoUnique.bam}.precursor.sam
