@@ -12,7 +12,8 @@ output=$organism"_results"
 enable_mitounique=False
 
 #next value True or False. If True the script will keep only sequences shorter then 27 and longer then 14, according to the paper.
-check_length=True
+#I suggest to  leave the value as False, 'cause the filtering script in python, added later, accounts also for the length check.
+check_length=False
 
 
 genome_mit=$organism"_mit_doubled"
@@ -44,6 +45,25 @@ cp /home/diegocarli/scripts_nuc/duplicate_genome.R .
 cp /home/diegocarli/scripts_nuc/remove_duplicate_region.R .
 cp /home/diegocarli/scripts_nuc/01.core.modificato.sh .
 
+#getting rRNA database from web
+wget https://www.arb-silva.de/fileadmin/silva_databases/release_138.1/Exports/SILVA_138.1_SSURef_NR99_tax_silva.fasta.gz
+wget https://www.arb-silva.de/fileadmin/silva_databases/release_138.1/Exports/SILVA_138.1_LSURef_NR99_tax_silva.fasta.gz
+gzip -d SILVA_138.1_SSURef_NR99_tax_silva.fasta.gz
+gzip -d SILVA_138.1_LSURef_NR99_tax_silva.fasta.gz
+
+cat SILVA_138* >> rRNA_database.fa
+rm SILVA_138*
+
+rrna_database="rRNA_database"
+rrna_database_file="rRNA_database.fa"
+
+#getting tRNA databse from storage
+
+cp /media/storage/diegocarli/nuc_genome/tRNA_database.fa .
+
+trna_database="tRNA_database"
+trna_database_file="tRNA_database.fa"
+
 #le SRA corrette devono essere scritte nel file con il percorso visibile qua sotto (SRA_tabella). Commenta e decommenta quello sotto se preferisci inserirle a mano.
 #oppure commenta entrambi e inserisci i file fastq a mano nella directory.
 SRA_entries=`grep $organism"_"$sex /home/diegocarli/genome.fasta/SRA_tabella | awk '{print $2}' | sed 's/,/ /g'`
@@ -72,6 +92,9 @@ rm -r R
 bowtie2-build -f $genome_mit_file $genome_mit
 bowtie2-build -f $genome_nuc_file $genome_nuc
 bowtie2-build -f $precursor_mirna_file $precursor_mirna
+bowtie2-build -f $rrna_database_file $rrna_database
+bowtie2-build -f $trna_database_file $trna_database
+
 ##create directories and move files
 if [ -d $genome_mit ]
 	then rm -rf $genome_mit
@@ -88,6 +111,17 @@ if [ -d $precursor_mirna ]
 	fi
 mkdir $precursor_mirna
 
+if [ -d $rrna_database ]
+then rm -rf $rrna_database
+fi
+mkdir $rrna_database
+
+if [ -d $trna_database ]
+then rm -rf $trna_database
+fi
+mkdir $trna_database
+
+
 mv $genome_mit.* $genome_mit
 if [ -f $genome_mit_file ]
 	then mv $genome_mit_file $genome_mit
@@ -102,6 +136,15 @@ if [ -f $precursor_mirna_file ]
 	then mv $precursor_mirna_file $precursor_mirna
 	fi
 
+mv $rrna_database.* $rrna_database
+if [ -f $rrna_database ]
+	then mv $rrna_database $rrna_database
+	fi
+
+mv $trna_database.* $trna_database
+if [ -f $trna_database ]
+	then mv $trna_database $trna_database
+	fi
 
 ##downloading reads
 fastq-dump --defline-seq '@$sn[_cds	$rn]/$ri' --split-files $SRA_entries
@@ -134,7 +177,7 @@ for i in *.trim.kraken2.fastq
         echo "($right_length/$not_filtered)" | bc -l >> percentage_of_mapped
         done
 else 
-echo "jumpin' length check step"
+echo "jumpin' length check step in bash"
 fi
 
 ##formatting header on fastq
@@ -213,13 +256,15 @@ then
 for infile in *Multi_MitoUnique.bam
 	do fastq_tomap=${infile%.trim.kraken2.fastq_Multi_MitoUnique.bam}.MitoUnique.fastq
 	prefile=${infile%.trim.kraken2.fastq_Multi_MitoUnique.bam}.precursor.sam
+	mapped_precu_sorted_bam=${infile%.trim.kraken2.fastq_Multi_MitoUnique.bam}.precu.mapped.sorted.bam
 	mapped_precu_bam=${infile%.trim.kraken2.fastq_Multi_MitoUnique.bam}.precu.mapped.bam
 	mapped_precu_fastq=${infile%.trim.kraken2.fastq_Multi_MitoUnique.bam}.precu.mapped.fastq
 	bedtools bamtofastq -i $infile -fq $fastq_tomap
 	bowtie2 -x ../$precursor_mirna/$precursor_mirna -q $fastq_tomap -S $prefile -N 1 -i C,1 -L 18
 	num_tot=`wc -l $fastq_tomap | awk '{print $1}'`
+	samtools sort $mapped_precu_bam -o $mapped_precu_sorted_bam
 	samtools view -b -F 4 $prefile > $mapped_precu_bam
-	bedtools bamtofastq -i $mapped_precu_bam -fq $mapped_precu_fastq
+	bedtools bamtofastq -i $mapped_precu_sorted_bam -fq $mapped_precu_fastq
 	num_mapped=`wc -l $mapped_precu_fastq  | awk '{print $1}'`
 	echo tot $num_tot
 	echo mapped $num_mapped
@@ -232,11 +277,13 @@ for infile in *1.trim.kraken2.fastq
 	do fastq_tomap=$infile
 	prefile=${infile%.trim.kraken2.fastq}.precursor.sam
 	mapped_precu_bam=${infile%.trim.kraken2.fastq}.precu.mapped.bam
+	mapped_precu_sorted_bam=${infile%.trim.kraken2.fastq_Multi_MitoUnique.bam}.precu.mapped.sorted.bam
 	mapped_precu_fastq=${infile%.trim.kraken2.fastq}.precu.mapped.fastq
 	bowtie2 -x $precursor_mirna/$precursor_mirna -q $fastq_tomap -S $prefile -N 1 -i C,1 -L 18
 	num_tot=`wc -l $fastq_tomap | awk '{print $1}'`
 	samtools view -b -F 4 $prefile > $mapped_precu_bam
-	bedtools bamtofastq -i $mapped_precu_bam -fq $mapped_precu_fastq
+	samtools sort $mapped_precu_bam -o $mapped_precu_sorted_bam
+	bedtools bamtofastq -i $mapped_precu_sorted_bam -fq $mapped_precu_fastq
 	num_mapped=`wc -l $mapped_precu_fastq  | awk '{print $1}'`
 	echo tot $num_tot
 	echo mapped $num_mapped
