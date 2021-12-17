@@ -44,6 +44,7 @@ cp /media/storage/diegocarli/mirbase/mirna_mature/$mature_mirna_file .
 cp /home/diegocarli/scripts_nuc/duplicate_genome.R .
 cp /home/diegocarli/scripts_nuc/remove_duplicate_region.R .
 cp /home/diegocarli/scripts_nuc/01.core.modificato.sh .
+cp /media/storage/diegocarli/mirbase/alternative_mirna/workin_sys.py .
 
 #getting rRNA database from web
 wget https://www.arb-silva.de/fileadmin/silva_databases/release_138.1/Exports/SILVA_138.1_SSURef_NR99_tax_silva.fasta.gz
@@ -137,13 +138,13 @@ if [ -f $precursor_mirna_file ]
 	fi
 
 mv $rrna_database.* $rrna_database
-if [ -f $rrna_database ]
-	then mv $rrna_database $rrna_database
+if [ -f $rrna_database_file ]
+	then mv $rrna_database_file $rrna_database
 	fi
 
 mv $trna_database.* $trna_database
-if [ -f $trna_database ]
-	then mv $trna_database $trna_database
+if [ -f $trna_database_file ]
+	then mv $trna_database_file $trna_database
 	fi
 
 ##downloading reads
@@ -190,6 +191,57 @@ while [ $num_curr_fastq -lt $num_fastq ]
 	sed -i '1~4 s/^@/@'$num_curr_fastq'_/g' $curr_fastq
 	done
 
+##filtering using mirna statistics and exlude reads that do map on rRNA or tRNA database.
+for infile in *.trim.kraken2.fastq
+	
+	do 
+	if [ -f filtered_bypython.fastq ]
+	then rm filtered_bypython.fastq
+	fi
+	
+	python3 workin_sys.py $mature_mirna/$mature_mirna_file $infile filtered_bypython.fastq
+	
+	#exclude from rrna
+	fastq_tomap_rrna=filtered_bypython.fastq
+	prefile_rrna=${infile%.trim.kraken2.fastq}.rrna.sam
+	unmapped_rrna_bam=${infile%.trim.kraken2.fastq}.rrna.mapped.bam
+	unmapped_rrna_sorted_bam=${infile%.trim.kraken2.fastq_Multi_MitoUnique.bam}.rrna.unmapped.sorted.bam
+	unmapped_rrna_fastq=${infile%.trim.kraken2.fastq}.rrna.unmapped.fastq
+	
+	bowtie2 -x $rrna_database/$rrna_database -q $fastq_tomap_rrna -S $prefile_rrna -N 1 -i C,1 -L 18
+	num_tot=`wc -l $fastq_tomap_rrna | awk '{print $1}'`
+	samtools view -b -f 4 $prefile_rrna > $unmapped_rrna_bam
+	samtools sort $mapped_rrna_bam -o $unmapped_rrna_sorted_bam
+	bedtools bamtofastq -i $unmapped_rrna_sorted_bam -fq $unmapped_rrna_fastq
+	num_unmapped_rrna=`wc -l $unmapped_rrna_fastq  | awk '{print $1}'`
+	echo tot $num_tot
+	echo unmapped_rrna $num_unmapped
+	echo $unmapped_rrna_fastq "/" $fastq_tomap_rrna >> percentage_of_mapped
+	echo "($num_unmapped_rrna/$num_tot)" | bc -l >> percentage_of_mapped
+	
+	#exclude from trna
+	fastq_tomap_trna=$unmapped_rrna_fastq		
+	prefile_trna=${infile%.trim.kraken2.fastq}.trna.sam
+	unmapped_trna_bam=${infile%.trim.kraken2.fastq}.trna.mapped.bam
+	unmapped_trna_sorted_bam=${infile%.trim.kraken2.fastq_Multi_MitoUnique.bam}.trna.unmapped.sorted.bam
+	unmapped_trna_fastq=${infile%.trim.kraken2.fastq}.trna.unmapped.fastq
+	
+	bowtie2 -x $trna_database/$trna_database -q $fastq_tomap_trna -S $prefile_trna -N 1 -i C,1 -L 18
+	num_tot=`wc -l $fastq_tomap_trna | awk '{print $1}'`
+	samtools view -b -f 4 $prefile_trna > $unmapped_trna_bam
+	samtools sort $mapped_trna_bam -o $unmapped_trna_sorted_bam
+	bedtools bamtofastq -i $unmapped_trna_sorted_bam -fq $unmapped_trna_fastq
+	num_unmapped_trna=`wc -l $unmapped_trna_fastq  | awk '{print $1}'`
+	echo tot $num_tot
+	echo unmapped_trna $num_unmapped
+	echo $unmapped_trna_fastq "/" $fastq_tomap_trna >> percentage_of_mapped
+	echo "($num_unmapped_trna/$num_tot)" | bc -l >> percentage_of_mapped
+	
+	cat $unmapped_trna_fastq > $infile
+	
+	cat percentage_of_mapped
+	done
+	
 #01.core.pipeline
 if [ "$enable_mitunique" = True ]
 then
@@ -292,10 +344,5 @@ for infile in *1.trim.kraken2.fastq
 	cat percentage_of_mapped
 	done
 fi
-
-
-
-
-
 
 
