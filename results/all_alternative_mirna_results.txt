@@ -1,0 +1,142 @@
+DaRe female
+SRR1265755_1.rrna.unmapped.fastq / SRR1265755_1.filtered_bypython.fastq
+.96613692860476981361
+SRR1265755_1.trna.unmapped.fastq / SRR1265755_1.rrna.unmapped.fastq
+.98525546519681449991
+SRR1265756_1.rrna.unmapped.fastq / SRR1265756_1.filtered_bypython.fastq
+.96535714050080633835
+SRR1265756_1.trna.unmapped.fastq / SRR1265756_1.rrna.unmapped.fastq
+.98483715317306734725
+SRR1265757_1.rrna.unmapped.fastq / SRR1265757_1.filtered_bypython.fastq
+.96884814876311858054
+SRR1265757_1.trna.unmapped.fastq / SRR1265757_1.rrna.unmapped.fastq
+.98396717456825949731
+SRR1265755_1.precu.mapped.fastq / SRR1265755_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+0
+SRR1265756_1.precu.mapped.fastq / SRR1265756_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+0
+SRR1265757_1.precu.mapped.fastq / SRR1265757_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+0
+
+DaRe male
+SRR1265758_1.rrna.unmapped.fastq / SRR1265758_1.filtered_bypython.fastq
+.99464121830045633733
+SRR1265758_1.trna.unmapped.fastq / SRR1265758_1.rrna.unmapped.fastq
+.98965927942490110170
+SRR1265759_1.rrna.unmapped.fastq / SRR1265759_1.filtered_bypython.fastq
+.99734252598774787081
+SRR1265759_1.trna.unmapped.fastq / SRR1265759_1.rrna.unmapped.fastq
+.98539088811488914661
+SRR1265760_1.rrna.unmapped.fastq / SRR1265760_1.filtered_bypython.fastq
+.99587587034037984365
+SRR1265760_1.trna.unmapped.fastq / SRR1265760_1.rrna.unmapped.fastq
+.98907591734890538321
+SRR1265758_1.precu.mapped.fastq / SRR1265758_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+0
+SRR1265759_1.precu.mapped.fastq / SRR1265759_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+0
+SRR1265760_1.precu.mapped.fastq / SRR1265760_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+0
+
+DrMe female
+SRR5181429_1.rrna.unmapped.fastq / SRR5181429_1.filtered_bypython.fastq
+.99696926924997653512
+SRR5181429_1.trna.unmapped.fastq / SRR5181429_1.rrna.unmapped.fastq
+.99688926770408049599
+SRR5181430_1.rrna.unmapped.fastq / SRR5181430_1.filtered_bypython.fastq
+.99565770644346065898
+SRR5181430_1.trna.unmapped.fastq / SRR5181430_1.rrna.unmapped.fastq
+.99610330778185332425
+SRR5181429_1.precu.mapped.fastq / SRR5181429_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+0
+SRR5181430_1.precu.mapped.fastq / SRR5181430_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+0
+
+DrMe male
+SRR5181435_1.rrna.unmapped.fastq / SRR5181435_1.filtered_bypython.fastq
+.98974455800734377096
+SRR5181435_1.trna.unmapped.fastq / SRR5181435_1.rrna.unmapped.fastq
+.99409222119029092095
+SRR5181436_1.rrna.unmapped.fastq / SRR5181436_1.filtered_bypython.fastq
+.99576219830738689792
+SRR5181436_1.trna.unmapped.fastq / SRR5181436_1.rrna.unmapped.fastq
+.98710937445350546949
+SRR5181435_1.precu.mapped.fastq / SRR5181435_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+0
+SRR5181436_1.precu.mapped.fastq / SRR5181436_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+0
+
+MuMu female
+DRR083999_1.rrna.unmapped.fastq / DRR083999_1.filtered_bypython.fastq
+.95548391482063544663
+DRR083999_1.trna.unmapped.fastq / DRR083999_1.rrna.unmapped.fastq
+.99583248627769871925
+DRR084000_1.rrna.unmapped.fastq / DRR084000_1.filtered_bypython.fastq
+.99483028408921330780
+DRR084000_1.trna.unmapped.fastq / DRR084000_1.rrna.unmapped.fastq
+.99597559642818111101
+DRR084001_1.rrna.unmapped.fastq / DRR084001_1.filtered_bypython.fastq
+.95791750933309762414
+DRR084001_1.trna.unmapped.fastq / DRR084001_1.rrna.unmapped.fastq
+.99772555862034254269
+DRR084005_1.rrna.unmapped.fastq / DRR084005_1.filtered_bypython.fastq
+.90605697134440256851
+DRR084005_1.trna.unmapped.fastq / DRR084005_1.rrna.unmapped.fastq
+.99836658412761541525
+DRR084006_1.rrna.unmapped.fastq / DRR084006_1.filtered_bypython.fastq
+.99219266144645452613
+DRR084006_1.trna.unmapped.fastq / DRR084006_1.rrna.unmapped.fastq
+.99204437547768487852
+DRR084007_1.rrna.unmapped.fastq / DRR084007_1.filtered_bypython.fastq
+.91703698293167959435
+DRR084007_1.trna.unmapped.fastq / DRR084007_1.rrna.unmapped.fastq
+.99888778691757354480
+DRR083999_1.precu.mapped.fastq / DRR083999_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+0
+DRR084000_1.precu.mapped.fastq / DRR084000_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+0
+DRR084001_1.precu.mapped.fastq / DRR084001_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+0
+DRR084005_1.precu.mapped.fastq / DRR084005_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+0
+DRR084006_1.precu.mapped.fastq / DRR084006_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+0
+DRR084007_1.precu.mapped.fastq / DRR084007_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+0
+
+MuMu male
+SRR3521024_1.rrna.unmapped.fastq / SRR3521024_1.filtered_bypython.fastq
+.98205537539181660611
+SRR3521024_1.trna.unmapped.fastq / SRR3521024_1.rrna.unmapped.fastq
+.98256809732279516697
+SRR3521025_1.rrna.unmapped.fastq / SRR3521025_1.filtered_bypython.fastq
+.98699310765104248006
+SRR3521025_1.trna.unmapped.fastq / SRR3521025_1.rrna.unmapped.fastq
+.99001796085436659440
+SRR3521024_1.precu.mapped.fastq / SRR3521024_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+0
+SRR3521025_1.precu.mapped.fastq / SRR3521025_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+0
+
+RuPh female
+SRS1500544_1.rrna.unmapped.fastq / SRS1500544_1.filtered_bypython.fastq
+SRS1500544_1.trna.unmapped.fastq / SRS1500544_1.rrna.unmapped.fastq
+SRS1500545_1.rrna.unmapped.fastq / SRS1500545_1.filtered_bypython.fastq
+SRS1500545_1.trna.unmapped.fastq / SRS1500545_1.rrna.unmapped.fastq
+SRS1500546_1.rrna.unmapped.fastq / SRS1500546_1.filtered_bypython.fastq
+SRS1500546_1.trna.unmapped.fastq / SRS1500546_1.rrna.unmapped.fastq
+SRS1500544_1.precu.mapped.fastq / SRS1500544_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+SRS1500545_1.precu.mapped.fastq / SRS1500545_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+SRS1500546_1.precu.mapped.fastq / SRS1500546_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+
+RuPh male
+SRS1500547_1.rrna.unmapped.fastq / SRS1500547_1.filtered_bypython.fastq
+SRS1500547_1.trna.unmapped.fastq / SRS1500547_1.rrna.unmapped.fastq
+SRS1500548_1.rrna.unmapped.fastq / SRS1500548_1.filtered_bypython.fastq
+SRS1500548_1.trna.unmapped.fastq / SRS1500548_1.rrna.unmapped.fastq
+SRS1500549_1.rrna.unmapped.fastq / SRS1500549_1.filtered_bypython.fastq
+SRS1500549_1.trna.unmapped.fastq / SRS1500549_1.rrna.unmapped.fastq
+SRS1500547_1.precu.mapped.fastq / SRS1500547_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+SRS1500548_1.precu.mapped.fastq / SRS1500548_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+SRS1500549_1.precu.mapped.fastq / SRS1500549_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+
