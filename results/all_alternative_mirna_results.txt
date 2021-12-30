@@ -1,3 +1,5 @@
+##alternative_mirna con tutti i filtri disponibili, quindi sia per parametri presi dall'analisi statistica dei databse dei mirna, che per i mappaggi su rRNA e tRNA (quelli che mappano vengono esclusi).
+
 DaRe female
 SRR1265755_1.rrna.unmapped.fastq / SRR1265755_1.filtered_bypython.fastq
 .96613692860476981361
@@ -139,4 +141,35 @@ SRS1500549_1.trna.unmapped.fastq / SRS1500549_1.rrna.unmapped.fastq
 SRS1500547_1.precu.mapped.fastq / SRS1500547_1.trim.kraken2.fastq_Multi_MitoUnique.bam
 SRS1500548_1.precu.mapped.fastq / SRS1500548_1.trim.kraken2.fastq_Multi_MitoUnique.bam
 SRS1500549_1.precu.mapped.fastq / SRS1500549_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+
+
+##alternative mirna fatto andare senza alcun filtro, ne di lunghezza, ne di qualsiasi tipo di somiglianza con il database di mirna, ne rRNA ne tRNA.
+
+DaRe female
+SRR1265755_1.precu.mapped.fastq / SRR1265755_1.trim.kraken2.fastq
+.04319701047039424141
+SRR1265756_1.precu.mapped.fastq / SRR1265756_1.trim.kraken2.fastq
+.02026603283835107202
+SRR1265757_1.precu.mapped.fastq / SRR1265757_1.trim.kraken2.fastq
+.03211695729940922673
+
+DaRe male
+SRR1265758_1.precu.mapped.fastq / SRR1265758_1.trim.kraken2.fastq
+.01236903623810891674
+SRR1265759_1.precu.mapped.fastq / SRR1265759_1.trim.kraken2.fastq
+.01277344356665921700
+SRR1265760_1.precu.mapped.fastq / SRR1265760_1.trim.kraken2.fastq
+.01191102317853116823
+
+DrMe female
+SRR5181429_1.precu.mapped.fastq / SRR5181429_1.trim.kraken2.fastq
+.02370756693083205555
+SRR5181430_1.precu.mapped.fastq / SRR5181430_1.trim.kraken2.fastq
+.04667524195334175665
+
+DrMe male
+SRR5181435_1.precu.mapped.fastq / SRR5181435_1.trim.kraken2.fastq
+.09265576054249186197
+SRR5181436_1.precu.mapped.fastq / SRR5181436_1.trim.kraken2.fastq
+.09975747434668992893
 
