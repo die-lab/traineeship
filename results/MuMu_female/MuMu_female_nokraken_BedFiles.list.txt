@@ -1,0 +1,60 @@
+-rwxr-x---. 1 diegocarli diegocarli  7930 Jan 19 13:12 02.modificato.sh
+-rwxr-x---. 1 diegocarli diegocarli  2009 Jan 19 13:12 03.modificato.sh
+-rw-rw-r--. 1 diegocarli diegocarli   657 Jan 19 13:12 DRR083999_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+-rw-rw-r--. 1 diegocarli diegocarli   213 Jan 19 13:12 DRR083999_1.trim.kraken2.fastq_Multi_MitoUnique.bam_Cluster.csv
+-rw-rw-r--. 1 diegocarli diegocarli   201 Jan 19 13:12 DRR083999_1.trim.kraken2.fastq_Multi_MitoUnique.bam_Map.bed
+-rw-rw-r--. 1 diegocarli diegocarli  4624 Jan 19 13:12 DRR084000_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+-rw-rw-r--. 1 diegocarli diegocarli  6881 Jan 19 13:12 DRR084000_1.trim.kraken2.fastq_Multi_MitoUnique.bam_Cluster.csv
+-rw-rw-r--. 1 diegocarli diegocarli  6443 Jan 19 13:12 DRR084000_1.trim.kraken2.fastq_Multi_MitoUnique.bam_Map.bed
+-rw-rw-r--. 1 diegocarli diegocarli 12813 Jan 19 13:12 DRR084001_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+-rw-rw-r--. 1 diegocarli diegocarli 21764 Jan 19 13:12 DRR084001_1.trim.kraken2.fastq_Multi_MitoUnique.bam_Cluster.csv
+-rw-rw-r--. 1 diegocarli diegocarli 20157 Jan 19 13:12 DRR084001_1.trim.kraken2.fastq_Multi_MitoUnique.bam_Map.bed
+-rw-rw-r--. 1 diegocarli diegocarli   905 Jan 19 13:12 DRR084005_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+-rw-rw-r--. 1 diegocarli diegocarli   466 Jan 19 13:12 DRR084005_1.trim.kraken2.fastq_Multi_MitoUnique.bam_Cluster.csv
+-rw-rw-r--. 1 diegocarli diegocarli   440 Jan 19 13:12 DRR084005_1.trim.kraken2.fastq_Multi_MitoUnique.bam_Map.bed
+-rw-rw-r--. 1 diegocarli diegocarli  5569 Jan 19 13:12 DRR084006_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+-rw-rw-r--. 1 diegocarli diegocarli  9177 Jan 19 13:12 DRR084006_1.trim.kraken2.fastq_Multi_MitoUnique.bam_Cluster.csv
+-rw-rw-r--. 1 diegocarli diegocarli  8477 Jan 19 13:12 DRR084006_1.trim.kraken2.fastq_Multi_MitoUnique.bam_Map.bed
+-rw-rw-r--. 1 diegocarli diegocarli  8222 Jan 19 13:12 DRR084007_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+-rw-rw-r--. 1 diegocarli diegocarli 13316 Jan 19 13:12 DRR084007_1.trim.kraken2.fastq_Multi_MitoUnique.bam_Cluster.csv
+-rw-rw-r--. 1 diegocarli diegocarli 12338 Jan 19 13:12 DRR084007_1.trim.kraken2.fastq_Multi_MitoUnique.bam_Map.bed
+-rw-rw-r--. 1 diegocarli diegocarli  7458 Jan 19 13:12 MuMu_results.centroids.fa
+-rw-rw-r--. 1 diegocarli diegocarli 51804 Jan 19 13:12 MuMu_results.centroids.fa.clstr
+-rw-rw-r--. 1 diegocarli diegocarli    45 Jan 19 13:13 MuMu_results.centroids.selected.fa
+-rw-rw-r--. 1 diegocarli diegocarli 49260 Jan 19 13:12 MuMu_results.fa
+-rw-rw-r--. 1 diegocarli diegocarli    15 Jan 19 13:12 Mumu_mit.genome
+-rw-rw-r--. 1 diegocarli diegocarli 16346 Jan 19 13:12 chrMT_36emp.fna
+-rwxr-x---. 1 diegocarli diegocarli  1036 Jan 19 13:12 clusters1.py
+-rw-rw-r--. 1 diegocarli diegocarli   479 Jan 19 13:12 conf.temp
+-rwxr-x---. 1 diegocarli diegocarli   384 Jan 19 13:12 duplicate_genome.R
+-rwxr-x---. 1 diegocarli diegocarli   344 Jan 19 13:12 genome.R
+-rw-rw-r--. 1 diegocarli diegocarli    16 Jan 19 13:07 genome_mit.fa
+-rwxr-x---. 1 diegocarli diegocarli  3080 Jan 19 13:12 genomecov.R
+-rw-rw-r--. 1 diegocarli diegocarli    34 Jan 19 13:13 genomecov.temp
+-rwxr-x---. 1 diegocarli diegocarli  5431 Jan 19 13:12 length.distribution.R
+-rwxr-x---. 1 diegocarli diegocarli   471 Jan 19 13:12 pita_results.R
+-rwxr-x---. 1 diegocarli diegocarli  1212 Jan 19 13:12 remove_duplicate_region.R
+
+MuMu_results.clusters:
+total 0
+
+MuMu_results.clusters.bedfiles:
+total 832
+-rw-rw-r--. 1 diegocarli diegocarli  19752 Jan 19 13:13 33.bed
+-rw-rw-r--. 1 diegocarli diegocarli 266633 Jan 19 13:13 33.genomecov
+-rw-rw-r--. 1 diegocarli diegocarli 266591 Jan 19 13:13 33.genomecov.3
+-rw-rw-r--. 1 diegocarli diegocarli 266595 Jan 19 13:13 33.genomecov.5
+-rw-rw-r--. 1 diegocarli diegocarli  19752 Jan 19 13:13 33.sorted.bed
+
+MuMu_results.clusters.fasta:
+total 40
+-rw-rw-r--. 1 diegocarli diegocarli 19806 Jan 19 13:12 33.fa
+-rw-rw-r--. 1 diegocarli diegocarli 19806 Jan 19 13:12 complete.fa
+
+R:
+total 0
+
+output.R:
+total 16
+-rw-rw-r--. 1 diegocarli diegocarli 5465 Jan 19 13:13 genomecov.pdf
+-rw-rw-r--. 1 diegocarli diegocarli 5093 Jan 19 13:13 length.hist.pdf
