@@ -1,0 +1,69 @@
+-rwxr-x---. 1 diegocarli diegocarli   7930 Jan 19 16:45 02.modificato.sh
+-rwxr-x---. 1 diegocarli diegocarli   2009 Jan 19 16:45 03.modificato.sh
+-rw-rw-r--. 1 diegocarli diegocarli  55668 Jan 19 16:45 DaRe_results.centroids.fa
+-rw-rw-r--. 1 diegocarli diegocarli 255029 Jan 19 16:45 DaRe_results.centroids.fa.clstr
+-rw-rw-r--. 1 diegocarli diegocarli    299 Jan 19 16:45 DaRe_results.centroids.selected.fa
+-rw-rw-r--. 1 diegocarli diegocarli 275975 Jan 19 16:45 DaRe_results.fa
+-rw-rw-r--. 1 diegocarli diegocarli     15 Jan 19 16:45 Dare_mit.genome
+-rw-rw-r--. 1 diegocarli diegocarli 222643 Jan 19 16:45 SRR1265756_1.trim.kraken2.fastq_Multi_MitoUnique.bam
+-rw-rw-r--. 1 diegocarli diegocarli 419951 Jan 19 16:45 SRR1265756_1.trim.kraken2.fastq_Multi_MitoUnique.bam_Cluster.csv
+-rw-rw-r--. 1 diegocarli diegocarli 401604 Jan 19 16:45 SRR1265756_1.trim.kraken2.fastq_Multi_MitoUnique.bam_Map.bed
+-rw-rw-r--. 1 diegocarli diegocarli  16647 Jan 19 16:45 chrMT_40emp.fna
+-rwxr-x---. 1 diegocarli diegocarli   1036 Jan 19 16:45 clusters1.py
+-rw-rw-r--. 1 diegocarli diegocarli    160 Jan 19 16:45 conf.temp
+-rwxr-x---. 1 diegocarli diegocarli    384 Jan 19 16:45 duplicate_genome.R
+-rwxr-x---. 1 diegocarli diegocarli    344 Jan 19 16:45 genome.R
+-rw-rw-r--. 1 diegocarli diegocarli     16 Jan 19 16:32 genome_mit.fa
+-rwxr-x---. 1 diegocarli diegocarli   3080 Jan 19 16:45 genomecov.R
+-rw-rw-r--. 1 diegocarli diegocarli     49 Jan 19 16:45 genomecov.temp
+-rwxr-x---. 1 diegocarli diegocarli   5431 Jan 19 16:45 length.distribution.R
+-rwxr-x---. 1 diegocarli diegocarli    471 Jan 19 16:45 pita_results.R
+-rwxr-x---. 1 diegocarli diegocarli   1212 Jan 19 16:45 remove_duplicate_region.R
+
+DaRe_results.clusters:
+total 0
+
+DaRe_results.clusters.bedfiles:
+total 4340
+-rw-rw-r--. 1 diegocarli diegocarli  18393 Jan 19 16:45 0.bed
+-rw-rw-r--. 1 diegocarli diegocarli 271787 Jan 19 16:45 0.genomecov
+-rw-rw-r--. 1 diegocarli diegocarli 271713 Jan 19 16:45 0.genomecov.3
+-rw-rw-r--. 1 diegocarli diegocarli 271715 Jan 19 16:45 0.genomecov.5
+-rw-rw-r--. 1 diegocarli diegocarli  18393 Jan 19 16:45 0.sorted.bed
+-rw-rw-r--. 1 diegocarli diegocarli  28612 Jan 19 16:45 140.bed
+-rw-rw-r--. 1 diegocarli diegocarli 271765 Jan 19 16:45 140.genomecov
+-rw-rw-r--. 1 diegocarli diegocarli 271709 Jan 19 16:45 140.genomecov.3
+-rw-rw-r--. 1 diegocarli diegocarli 271708 Jan 19 16:45 140.genomecov.5
+-rw-rw-r--. 1 diegocarli diegocarli  28612 Jan 19 16:45 140.sorted.bed
+-rw-rw-r--. 1 diegocarli diegocarli  17416 Jan 19 16:45 167.bed
+-rw-rw-r--. 1 diegocarli diegocarli 271747 Jan 19 16:45 167.genomecov
+-rw-rw-r--. 1 diegocarli diegocarli 271710 Jan 19 16:45 167.genomecov.3
+-rw-rw-r--. 1 diegocarli diegocarli 271708 Jan 19 16:45 167.genomecov.5
+-rw-rw-r--. 1 diegocarli diegocarli  17416 Jan 19 16:45 167.sorted.bed
+-rw-rw-r--. 1 diegocarli diegocarli  70891 Jan 19 16:45 488.bed
+-rw-rw-r--. 1 diegocarli diegocarli 271757 Jan 19 16:45 488.genomecov
+-rw-rw-r--. 1 diegocarli diegocarli 271709 Jan 19 16:45 488.genomecov.3
+-rw-rw-r--. 1 diegocarli diegocarli 271711 Jan 19 16:45 488.genomecov.5
+-rw-rw-r--. 1 diegocarli diegocarli  70891 Jan 19 16:45 488.sorted.bed
+-rw-rw-r--. 1 diegocarli diegocarli  19360 Jan 19 16:45 911.bed
+-rw-rw-r--. 1 diegocarli diegocarli 271741 Jan 19 16:45 911.genomecov
+-rw-rw-r--. 1 diegocarli diegocarli 271709 Jan 19 16:45 911.genomecov.3
+-rw-rw-r--. 1 diegocarli diegocarli 271709 Jan 19 16:45 911.genomecov.5
+-rw-rw-r--. 1 diegocarli diegocarli  19360 Jan 19 16:45 911.sorted.bed
+
+DaRe_results.clusters.fasta:
+total 184
+-rw-rw-r--. 1 diegocarli diegocarli 12782 Jan 19 16:45 0.fa
+-rw-rw-r--. 1 diegocarli diegocarli 20136 Jan 19 16:45 140.fa
+-rw-rw-r--. 1 diegocarli diegocarli  9682 Jan 19 16:45 167.fa
+-rw-rw-r--. 1 diegocarli diegocarli 36710 Jan 19 16:45 488.fa
+-rw-rw-r--. 1 diegocarli diegocarli 10318 Jan 19 16:45 911.fa
+-rw-rw-r--. 1 diegocarli diegocarli 89628 Jan 19 16:45 complete.fa
+
+R:
+total 0
+
+output.R:
+total 20
+-rw-rw-r--. 1 diegocarli diegocarli 11194 Jan 19 16:45 DaRe_female_nokraken_genomecov.pdf
+-rw-rw-r--. 1 diegocarli diegocarli  5344 Jan 19 16:45 DaRe_female_nokraken_length.hist.pdf
