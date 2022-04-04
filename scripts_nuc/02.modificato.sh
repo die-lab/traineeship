@@ -132,17 +132,13 @@ for s in `seq 1 $num_smith`
 	if [ $num_lines -ge 2 ]
 		then for t in `seq 2 $num_lines`
 			do curr_PITA_target=`head -n $t "$curr_smith"_pita_results.tab | tail -n 1 | awk -F"\t" '{print $1}'`
-			too_long_grep=`grep -c "target too long: $curr_PITA_target" $curr_smith.RNAhybrid_results.out`
-			curr_grep=`grep -c $curr_PITA_target $curr_smith.RNAhybrid_results.out`
-			if [ $too_long_grep -eq 0 -a $curr_grep -ne 0 ]
-				then grep -A 1 $curr_PITA_target ../../Transcriptome/3UTR/*_3UTR_orfs.fa >> $curr_smith.targets
+			grep -A 1 $curr_PITA_target ../../Transcriptome/3UTR/*_3UTR_orfs.fa >> $curr_smith.targets
 
 				#Toglie i duplicati nei file dei target, perché ad ARGOT non piacciono.
 
 				cat $curr_smith.targets | paste - - > tab_$curr_smith.targets
 				sort -u tab_$curr_smith.targets > sorted_tab_$curr_smith.targets
 				awk '{print $1"\n"$2}' sorted_tab_$curr_smith.targets > $curr_smith.target.fa
-				fi
 			done
 		fi
 	done

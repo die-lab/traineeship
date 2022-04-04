@@ -246,6 +246,7 @@ sed -i 's/forward//' $output_fa
 
 #Trova i cluster con CD-HIT. -M 0 indica di usare tutta la memoria disponibile; -c è il livello di similarità GLOBALE (vengono tutti 100%); -r 0 indica il +/+.
 
+sed -i 's/\/1//g' $output_fa
 sed -i 's/>.\+:\([0-9]\+\):\([0-9]\+\):\([0-9]\+\)$/>\1_\2_\3/g' $output_fa
 
 cd-hit-est -i $output_fa -o $output_centroids -T $num_threads -M 0 -c 0.99 -r 0

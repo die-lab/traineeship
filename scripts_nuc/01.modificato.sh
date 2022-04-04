@@ -1,6 +1,6 @@
 #!/bin/sh
 
-organism=DrMe
+organism=MuMu
 sex=female
 
 
@@ -33,7 +33,7 @@ alignment_check="FALSE"
 
 #Stabilisce una dimensione per i cluster di sequenze (individuati da USEARCH) da tenere in quanto molto rappresentati (e quindi molto trascritti!).
 
-cluster_threshold=200
+cluster_threshold=50
 
 #Stabilisce il nome dei file di configurazione per R. Cambiando questa opzione, va cambiata anche corrispondentemente negli script R.
 
@@ -88,13 +88,22 @@ fastq-dump --defline-seq '@$sn[_cds	$rn]/$ri' --split-files $SRA_entries
 cp /home/diegocarli/$adapter_file .
 
 for fastq in *.fastq
-	do java -jar /opt/Trimmomatic-0.38/trimmomatic-0.38.jar SE -threads $num_threads $fastq ${fastq%.fastq}.trim.fastq ILLUMINACLIP:$adapter_file:2:30:10 AVGQUAL:20 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:20
+	do sed -i '1~4 s/_cds.\+/\/1/g' $fastq 
+	sed -i '3~4 s/.\+/+/g' $fastq
+fastqc $fastq
+ java -jar /opt/Trimmomatic-0.38/trimmomatic-0.38.jar SE -threads $num_threads $fastq ${fastq%.fastq}.trim.fastq ILLUMINACLIP:$adapter_file:2:30:10 AVGQUAL:20 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:20
 	done
 rm $adapter_file
 
 for fastq in *.trim.fastq
 	do kraken2 --db /media/storage/dbs/$kraken2_db --threads $num_threads --use-names --report kraken2.report --classified-out ${fastq%.trim.fastq}.cont.fastq --unclassified-out ${fastq%.trim.fastq}.trim.kraken2.fastq --output kraken2.out $fastq
 	done
+
+sh /home/diegocarli/grepping_smithRNAs.sh $organism $sex
+
+sh stats_on_analyses.sh fastq single remove
+sh stats_on_analyses.sh trim.fastq single remove
+sh stats_on_analyses.sh trim.kraken2.fastq single
 
 fastqc *.trim.kraken2.fastq
 
@@ -218,6 +227,9 @@ for bam in *.bam
 	samtools fasta -n $bam >> $output_fa
 	done
 
+echo "smithRNAs against reads mapping only on mito" >> ../grepped_smithRNAs.txt
+for i in `grep -v ">" ../local_smithRNAs.fa`; do grep -c $i $output_fa >> ../grepped_smithRNAs.txt; done
+
 #Cancella, se ci sono, le cartelle in cui mettere i cluster e i relativi file BED e le rifà.
 
 if [ -d $output_clusters ]
@@ -243,6 +255,9 @@ cd-hit-est -i $output_fa -o $output_centroids -T $num_threads -M 0 -c 0.99 -r 0
 #Costruisce un file BED nella cartella apposta solo per i cluster più grandi di '$cluster_threshold' sequenze e mette i relativi FASTA nella cartella apposta.
 
 cp ../clusters1.py .
+
+sh ../clusters_till.sh 200 $organism
+
 python clusters1.py $output_fa $output_centroids.clstr $cluster_threshold $clusters_fasta
 
 #Costruisce un file BED nella cartella apposta solo per i cluster più grandi di '$cluster_threshold' sequenze.

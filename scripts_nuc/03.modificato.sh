@@ -49,5 +49,5 @@ mv *.ps $pre_dG
 
 #Cancella i file temporanei: il file di configurazione di R, il file con il genoma mitocondriale con un nome standard, il file di genoma e la cartella con i FASTA dei cluster selezionati.
 
-rm ../output.basename
-rm genome_mit.fa
+#rm ../output.basename
+#rm genome_mit.fa
