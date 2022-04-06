@@ -2,7 +2,7 @@
 
 c=0
 
-for sra in `cat SRA_tabella | awk '{print $3}'`
+for sra in `cat SRA_tabella | awk '{print $2}'`
 
 do c=$(( $c + 1 ))
 
