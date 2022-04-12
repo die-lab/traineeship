@@ -1,0 +1,18 @@
+smithRNAs against pure fastq reads
+96
+301
+211
+740
+smithRNAs against trimmed reads
+52
+182
+110
+379
+smithRNAs against kraken2 reads
+52
+182
+110
+379
+smithRNAs against reads mapping only on mito
+0
+0

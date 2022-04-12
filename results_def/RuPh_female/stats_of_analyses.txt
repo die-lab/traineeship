@@ -1,0 +1,12 @@
+stats on *1.fastq
+21238287
+24238862
+26754978
+stats on *1.trim.fastq
+21190611
+24165756
+26657918
+stats on *1.trim.kraken2.fastq
+21128139
+23992750
+26573646

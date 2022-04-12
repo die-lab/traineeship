@@ -1,0 +1,11 @@
+stats on *1.fastq
+13785473
+13213093
+stats on *2.fastq
+13785473
+13213093
+stats on *__1P
+4722431
+6094625
+stats on *unclassified_out_1
+8354380

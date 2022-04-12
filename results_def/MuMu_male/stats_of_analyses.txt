@@ -1,0 +1,9 @@
+stats on *1.fastq
+13720396
+17248956
+stats on *1.trim.fastq
+13369633
+16956744
+stats on *1.trim.kraken2.fastq
+11083390
+15453054

@@ -1,0 +1,4 @@
+smithRNAs against pure fastq reads
+smithRNAs against trimmed reads
+smithRNAs against kraken2 reads
+smithRNAs against reads mapping only on mito
